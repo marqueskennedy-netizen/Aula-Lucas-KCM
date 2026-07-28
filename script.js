@@ -10,7 +10,10 @@ let tdAltura = paciente.querySelector(".info-peso");
 let valorAltura = tdAltura.textContent;
 
 /*Equação para calculo do IMC* */
-let imc = valorPeso / (valorAltura * valorAltura)
+let imc = valorPeso / (valorAltura * valorAltura);
+
+let pesoValido = true
+let alturaValido = true
 
 /**adição do valor Imc na tabela */
 let tdImc = paciente.querySelector('.info-imc');
@@ -19,11 +22,17 @@ tdImc.textContent = imc
 /**Estrutura de verificação de peso e altura */
 if(valorPeso < 0 || valorPeso > 350){
     alert("Peso Inválido!");
-
+    let pesoValido = false;
 
 }
 if(valorAltura < 0 || valorAltura > 3.000){
     alert("Altura Inválida!");
+    let alturaValida = false;
 
+}
+
+if(pesoValido && alturaValida){
+    let tdImc = paciente.querySelector(".info-imc");
+    tdImc.textContent = imc;
 
 }
